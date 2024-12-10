@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple To-Do List</title>
+</head>
+<body bgcolor="RED" ALLIGN="CENTER">
+    <h1 ALLIGN="CENTER">TO-DO LIST</h1>
+    <input type="text" id="s1" placeholder="New Task"><BR>
+
+    <button id="s2">Add Task</button>
+    <ul id="s4"></ul>
+    <script>
+        const s1 = document.getElementById('s1');
+        const s2 = document.getElementById('s2');
+        const s4 = document.getElementById('s4');
+        s2.addEventListener('click', function() {
+            const taskText = s1.value.trim();
+            if (taskText !== '') {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = function() {
+                    s4.removeChild(li); 
+                };
+                li.appendChild(deleteButton);
+                s4.appendChild(li);
+                s1.value = '';
+            }
+        });
+        
+            </script>
+   
+</body>
+</html>
